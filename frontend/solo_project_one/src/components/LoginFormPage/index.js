@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import * as sessionActions from '../../store/session'
 import {useDispatch, useSelector} from 'react-redux';
 import {Redirect} from 'react-router-dom'
+import './LoginForm.css'
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -13,7 +14,6 @@ const LoginFormPage = () => {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([])
 
-    console.log("yo",state)
     if(sessionUser) return (
         <Redirect to="/" />
     )
