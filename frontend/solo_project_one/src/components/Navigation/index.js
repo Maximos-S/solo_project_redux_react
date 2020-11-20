@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import * as sessionActions from '../../store/session'
+
 import ProfileButton from './ProfileButton';
 
 
@@ -10,18 +10,13 @@ const Navigation = () => {
 
     const dispatch = useDispatch()
 
-    const logout = (e) => {
-        e.preventDefault()
-        dispatch(sessionActions.logout());
-    }
-    
     return (
         <ul>
             <NavLink to="/">Home</NavLink>
             {sessionUser ? 
             <div>
-                <NavLink to="/" onClick={logout}>Log Out</NavLink> 
-                <ProfileButton />
+                <ProfileButton user={sessionUser}/>
+
             </div> 
             :
             <div>
