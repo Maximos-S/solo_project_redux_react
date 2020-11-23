@@ -2,18 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux'
 import * as sessionActions from '../../store/session'
 
-const ProfileButton = ({user}) => {
+const ProfileButton = ({user, showMenu, setShowMenu}) => {
     const dispatch = useDispatch();
-
-    const [showMenu, setShowMenu] = useState(false)
 
     const openMenu = (e) => {
         if (showMenu) return;
         setShowMenu(true);
-    }
-
-    const closeMenu = () => {
-        setShowMenu(false);
     }
     // useEffect(() => {
     //     if (!showMenu) return;
@@ -30,10 +24,8 @@ const ProfileButton = ({user}) => {
 
     
     return (
-        <div onMouseLeave={closeMenu}>
-            <button onMouseEnter={openMenu} >
-                <i className="fas fa-jedi" onClick={openMenu}></i>
-            </button>
+        <div className="profile">
+                <i class="fas fa-user-circle" onMouseEnter={openMenu} ></i>
             {showMenu && (
                 <ul  className="profile-dropdown">
                     <li>{user.username}</li>
@@ -41,7 +33,6 @@ const ProfileButton = ({user}) => {
                     <li><button onClick={logout}>Log Out</button></li>
                 </ul>
             )}
-
         </div>
     );
 };
