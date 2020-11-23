@@ -22,7 +22,7 @@ function App() {
       const stockRes = await fetch("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=TSLA", {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "53f7356341mshc65eeb2724095a3p13006bjsn73146423c5b3",
+		"x-rapidapi-key": "",
 		"x-rapidapi-host": "alpha-vantage.p.rapidapi.com"
 	}
 })
