@@ -7,10 +7,12 @@ const { User } = require('../../db/models');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const searchRouter = require('./search.js');
+const portfolioRouter = require('./portfolio.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/search', searchRouter)
+router.use('/search', searchRouter);
+router.use('/portfolio', portfolioRouter);
 
 // router.get("/hello/world", function (req, res) {
 //   res.cookie("XSRF-TOKEN", req.csrfToken());

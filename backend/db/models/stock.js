@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      const columnMappingPortfolio = {
+        through: "StocksInList",
+        otherKey: "portfolioId",
+        foreignKey: "stockId"
+      }
+      const columnMappingWatchlist = {
+        through: "StocksInList",
+        otherKey: "watchlistId",
+        foreignKey: "stockId"
+      }
+      Stock.belongsToMany(models.Portfolio, columnMappingPortfolio)
+      Stock.belongsToMany(models.Watchlist, columnMappingWatchlist)
     }
   };
   Stock.init({

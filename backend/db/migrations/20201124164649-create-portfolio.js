@@ -14,7 +14,7 @@ module.exports = {
         references: {model: "Users"}
       },
       buyingPower: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.NUMERIC,
         defaultValue: 2000 
       },
       createdAt: {

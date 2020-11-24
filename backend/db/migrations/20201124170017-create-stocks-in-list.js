@@ -1,27 +1,30 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Stocks', {
+    await queryInterface.createTable('StocksInLists', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      companyName: {
-        type: Sequelize.STRING(50),
+      portfolioId: {
+        type: Sequelize.INTEGER,
+        references: {model: "Portfolios"}
+      },
+      watchlistId: {
+        type: Sequelize.INTEGER,
+        references: {model: "Watchlists"}
+      },
+      stockId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
+        references: {model: "Stocks"}
       },
-      symbol: {
-        type: Sequelize.STRING(4),
-        allowNull: false,
-        unique: true
+      shares: {
+        type: Sequelize.INTEGER
       },
-      percentChange: {
-        type: Sequelize.NUMERIC
-      },
-      latestPrice: {
+      cost: {
         type: Sequelize.NUMERIC
       },
       createdAt: {
@@ -37,6 +40,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Stocks');
+    await queryInterface.dropTable('StocksInLists');
   }
 };
