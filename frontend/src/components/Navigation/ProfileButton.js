@@ -25,7 +25,7 @@ const ProfileButton = ({user, showMenu, setShowMenu}) => {
     
     return (
         <div className="profile">
-                <i class="fas fa-user-circle" onMouseEnter={openMenu} ></i>
+                <i className="fas fa-user-circle" onMouseEnter={openMenu} ></i>
             {showMenu && (
                 <ul  className="profile-dropdown">
                     <li>{user.username}</li>

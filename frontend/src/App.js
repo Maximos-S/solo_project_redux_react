@@ -6,51 +6,24 @@ import * as sessionActions from './store/session';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 import { fetch } from './store/csrf';
+import Stock from './components/Stock';
+import Main from './components/MainComponent';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
+  const sessionUser = useSelector(state => state.session.user)
+
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(()=> setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(()=> setIsLoaded(true))
   },[dispatch])
 
-  let sessionUser;
-
-
-  // const CheckForSessionUser =  async () => {
-
-    sessionUser = useSelector(state => state.session.user)
-  //   setIsLoaded(true)
-  // }
-  // CheckForSessionUser()
-
-
-
-  //testing web apis:
-  // const [stocks, setStocks] = useState("")
-
-//   useEffect(() => {
-//     const fetchStocks = async () => {
-//       const stockRes = await fetch("https://alpha-vantage.p.rapidapi.com/query?function=GLOBAL_QUOTE&symbol=TSLA", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "",
-// 		"x-rapidapi-host": "alpha-vantage.p.rapidapi.com"
-// 	}
-// })
-
-//       console.log(stockRes)
-//       setStocks(stockRes.data["Global Quote"])
-//     }
-//     fetchStocks()
-//   }, [])
-
-  //end test
-
-
+  console.log(isLoaded)
+  console.log(sessionUser)
   return (
     <main>
-      {/* {!isLoaded ? <div className="loading">Loading...</div> : */
+      {!isLoaded ? <div className="loading">Loading...</div> :
         !sessionUser ? 
           <div className="user-auth-page">
             <LoginFormPage></LoginFormPage>
@@ -59,14 +32,15 @@ function App() {
           :
           <>
             <Navigation />
-            <Switch>
+            <Main />
+            {/* <Switch>
               <Route path='/login'>
                 <LoginFormPage />
               </Route>
               <Route path='/signup'>
                 <SignUpFormPage />
               </Route>
-            </Switch>
+            </Switch> */}
           </>
 } 
     </main>

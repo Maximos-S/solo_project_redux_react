@@ -35,7 +35,7 @@ const LoginFormPage = () => {
     }
 
     return (
-        <div className="login">
+        <div className="loginBox">
 
             <form className="login" onSubmit={registerUser} >
                 <ul>
@@ -43,9 +43,9 @@ const LoginFormPage = () => {
                             <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                <label for="userName">User Name</label>
+                <label htmlFor="userName">User Name</label>
                 <input className="formFieldLogin" type="text" id="userName" onChange={e=>setCredential(e.target.value)}  required value={credential} />
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input className="formFieldLogin" type="password" id="password" onChange={e=>setPassword(e.target.value)} required value={password} />
                 <button className="specialButton" type="submit">Log In</button>
             </form>

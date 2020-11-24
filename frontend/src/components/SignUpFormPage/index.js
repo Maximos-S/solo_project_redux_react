@@ -42,13 +42,13 @@ const SignUpFormPage = () => {
                         <li key={idx}>{error}</li>
                     ))}
                 </ul>
-                <label for="userName">User Name</label>
+                <label htmlFor="userName">User Name</label>
                 <input className="formField" type="text" id="userName" onChange={e=>setUsername(e.target.value)}  required value={username} />
-                <label for="email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input className="formField" type="email" id="email" onChange={e=>setEmail(e.target.value)}  required value={email} />
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input className="formField" type="password" id="password" onChange={e=>setPassword(e.target.value)} required value={password} />
-                <label for="confirmPassword">Confirm Password</label>
+                <label htmlFor="confirmPassword">Confirm Password</label>
                 <input className="formField" type="password" id="confirmPassword" onChange={e=>setConfirmPassword(e.target.value)} required value={confirmPassword} />
                 <button className="specialButton" type="submit">Sign Up</button>
             </form>

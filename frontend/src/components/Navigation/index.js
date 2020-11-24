@@ -10,6 +10,7 @@ import ProfileButton from './ProfileButton';
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user)
 
+
     const dispatch = useDispatch()
 
     const [showMenu, setShowMenu] = useState(false)
@@ -38,10 +39,8 @@ const Navigation = () => {
             <div className="logo">
                 <div>Logo</div>
             </div>
-            <form className="searchbar" onSubmit={searchStock}>
-
-                <input type="search" value={searchTerm}  placeholder="search by stock symbol"  onChange={changeTerm}/>
-                <button type="submit">submit</button>
+            <form onSubmit={searchStock}>
+                <input className="searchbar" type="search" value={searchTerm}  placeholder="search by stock symbol"  onChange={changeTerm}/>
             </form>
             <div className="user-login" onMouseLeave={closeMenu}>
                 <NavLink className="specialButton"to="/">Home</NavLink>
