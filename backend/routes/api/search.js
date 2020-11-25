@@ -15,8 +15,16 @@ router.post('/', asyncHandler(async (req,res) => {
     stock = stock.quote
     const symbol = stock.symbol
     const savedStock = await Stock.findOne({where: {symbol: symbol}})
+    let lastUpdated = new Date()
+    lastUpdated = lastUpdated.toLocaleDateString("en-Us")
+    console.log("type",typeof lastUpdated)
     if (savedStock) {
-        stock = savedStock.dataValues
+        const updated = await savedStock.update({
+        lastUpdated, 
+        percentChange: stock.changePercent,
+        latestPrice: stock.latestPrice,
+        });
+        stock = updated
         return res.json({stock})
     }
 
@@ -24,11 +32,13 @@ router.post('/', asyncHandler(async (req,res) => {
     const companyName = stock.companyName
 
 
+
     stock = await Stock.create({
         symbol,
         companyName,
         percentChange: stock.changePercent,
-        latestPrice: stock.latestPrice
+        latestPrice: stock.latestPrice,
+        lastUpdated
     })
     res.json({stock})
 }))

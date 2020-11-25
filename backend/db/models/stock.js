@@ -29,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     companyName: DataTypes.STRING,
     symbol: DataTypes.STRING,
     percentChange: DataTypes.INTEGER,
-    latestPrice: DataTypes.INTEGER
+    latestPrice: DataTypes.INTEGER,
+    lastUpdated: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Stock',
