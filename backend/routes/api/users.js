@@ -6,7 +6,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Portfolio, Watchlist, Stock} = require('../../db/models');
+const { User, Portfolio, Watchlist, Stock, StocksInList} = require('../../db/models');
 const router = express.Router();
 
 const validateSignup = [
@@ -46,9 +46,9 @@ router.post(
 );
 
 //get portfolio
-router.get("/portfolio", asyncHandler(async (req, res) => {
+router.post("/portfolio", asyncHandler(async (req, res) => {
   console.log("hitting this route")
-    const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
+    const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock]}, {model:StocksInList}]})
     const portfolio = user.Portfolio
     // console.log("user", user.Portfolio)
 
