@@ -48,11 +48,10 @@ router.post(
 //get portfolio
 router.post("/portfolio", asyncHandler(async (req, res) => {
   console.log("hitting this route")
-    const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock]}, {model:StocksInList}]})
+    const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock]}]})
     const portfolio = user.Portfolio
-    // console.log("user", user.Portfolio)
+    console.log("stocksinlist", user.Portfolio.Stocks[0].StocksInList.shares)
 
-    console.log(portfolio.Stocks)
 
     res.json({portfolio})
 }))

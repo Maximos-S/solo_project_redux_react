@@ -9,6 +9,7 @@ router.post('/', asyncHandler(async (req,res) => {
     const searchTerm = req.body.searchTerm.searchTerm
     const url = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/batch?types=quote,news,chart&range=1m&last=10&token=${process.env.IEX_SANDBOX_API}`
 
+    console.log("url", url)
     const result = await fetch(url)
     let stock = await result.json();
     stock = stock.quote
