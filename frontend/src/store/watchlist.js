@@ -30,7 +30,7 @@ export const getWatchlist = (userId) => (async (dispatch) => {
     return
 })
 export const removeWatchlist = (stock, shares, userId) => (async (dispatch) => {
-\    const response = await fetch ('/api/watchlist', {
+  const response = await fetch ('/api/watchlist', {
         method: 'Delete',
         headers: {'Content': 'application/json'},
         body: JSON.stringify({stock, shares, userId})
