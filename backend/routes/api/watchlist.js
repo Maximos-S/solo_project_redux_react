@@ -7,7 +7,6 @@ const { User, Portfolio, Watchlist, Stock, StocksInList} = require('../../db/mod
 
 //add stock to watchlist
 router.post('/', asyncHandler(async (req,res) => {
-    console.log("req",req.body)
     const stock = req.body.stock
     const shares = req.body.shares
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Watchlist, include: [Stock] }]})
@@ -21,7 +20,6 @@ router.post('/', asyncHandler(async (req,res) => {
     const watchlist = user.Watchlist
     
     if (oldStock) {
-        console.log("oldstock cost 1",oldStock.cost)
         await oldStock.update({
             watchlistId
         });
@@ -37,14 +35,12 @@ router.post('/', asyncHandler(async (req,res) => {
 //remove from watchlist
 
 // router.delete('/', asyncHandler(async (req,res) => {
-//     // console.log(req.body)
 //     const stock = req.body.stock
 //     const shares = req.body.shares
 //     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
 //     const cost = stock.latestPrice * shares
 //     const portfolioId = user.Portfolio.id
 //     const stockId = stock.id
-//     // console.log("user", user.Portfolio)
 //     const oldStock = await StocksInList.findOne({where: {stockId}})
 //     user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(cost)
 //     await user.Portfolio.save();
@@ -52,7 +48,6 @@ router.post('/', asyncHandler(async (req,res) => {
 
     
 //     if (oldStock) {
-//         console.log("oldstock cost 1",oldStock.cost)
 //         oldStock.shares = Number(oldStock.shares) - Number(shares)
 //         if(oldStock.shares <= 0) {
 //             await oldStock.destroy()

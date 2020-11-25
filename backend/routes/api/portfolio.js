@@ -7,7 +7,7 @@ const { User, Portfolio, Watchlist, Stock, StocksInList} = require('../../db/mod
 
 //add stock to portfolio
 router.post('/', asyncHandler(async (req,res) => {
-    console.log("req",req.body)
+
     const stock = req.body.stock
     let shares = req.body.shares
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
@@ -25,7 +25,7 @@ router.post('/', asyncHandler(async (req,res) => {
 
     
     if (oldStock) {
-        console.log("oldstock cost 1",oldStock.cost)
+
         shares = Number(shares) + Number(oldStock.shares)
         cost = cost + Number(oldStock.cost)
         await StocksInList.update({
@@ -50,7 +50,6 @@ router.post('/', asyncHandler(async (req,res) => {
 //sell shares
 
 router.delete('/', asyncHandler(async (req,res) => {
-    // console.log(req.body)
     const stock = req.body.stock
     const shares = req.body.shares
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
@@ -62,7 +61,6 @@ router.delete('/', asyncHandler(async (req,res) => {
     const oldShares = oldStock.shares
     
     if (oldStock) {
-        console.log("oldstock cost 1",oldStock.cost)
         oldStock.shares = Number(oldStock.shares) - Number(shares)
         if(oldStock && oldStock.shares <= 0) {
             user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(stock.latestPrice * oldShares)

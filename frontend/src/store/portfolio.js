@@ -38,7 +38,6 @@ export const getPortfolio = (userId) => (async (dispatch) => {
     return
 })
 export const sellPortfolio = (stock, shares, userId) => (async (dispatch) => {
-    console.log("hits sell shares")
     const response = await fetch ('/api/portfolio', {
         method: 'Delete',
         headers: {'Content': 'application/json'},

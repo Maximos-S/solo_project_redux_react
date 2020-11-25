@@ -24,7 +24,6 @@ const PortfolioStock = ({stock}) => {
         })
     }
 
-    console.log("stock", stock)
     const updatedAt = stock.lastUpdated.slice(0,10)
 
     return (

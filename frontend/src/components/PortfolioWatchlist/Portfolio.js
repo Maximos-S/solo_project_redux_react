@@ -30,7 +30,6 @@ const Portfolio = () => {
     if (portfolio.portfolio.buyingPower){
         buyingPower = Number(portfolio.portfolio.buyingPower).toFixed(2);
         value = portfolio.portfolio.Stocks.reduce( (total, stock) => {
-            console.log(typeof total)
             return total += stock.StocksInList.shares * stock.latestPrice
         },0)
         value = value.toFixed(2)
