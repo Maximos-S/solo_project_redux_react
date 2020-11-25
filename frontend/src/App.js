@@ -19,8 +19,6 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(()=> setIsLoaded(true))
   },[dispatch])
 
-  console.log(isLoaded)
-  console.log(sessionUser)
   return (
     <main>
       {!isLoaded ? <div className="loading">Loading...</div> :

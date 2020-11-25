@@ -1,23 +1,174 @@
 .mainBody {
     width: 100%;
-    height: 100vh;
-    background-color: salmon;
+    height: auto;
+    background-color: #1b1b1c;
     position: relative;
+    display: flex;
+    color: white;
 }
 
-.stockDetail {
-    background-color: palegoldenrod;
+.stockContainer {
     width: 70%;
-    height: 100vh;
+    min-width: 800px;
+    height: 100%;
     display:flex;
-    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
 .stockBox{
-    min-width: 40vw;
-    height: 300px;
-    background-color: pink;
-    position: absolute;
-    top: 100px;
-    right: 50px;
+    margin: 100px;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+        border: solid 1px white;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+
+}
+
+.stockInfo {
+    width: 100%;
+    height: 30%;
+    display:flex;
+    box-sizing: border-box
+}
+.stockText {
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box
+}
+.stockButtons {
+    width: 60%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.buyButton {
+    margin: 10px;
+    margin-left: 0px;
+    margin-top: 0px;
+    width: max-content;
+    color: #00eaff;
+    text-decoration: none;
+    font-family: 'DM Sans',
+        sans-serif;
+    /* background-color: whitesmoke; */
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 2px 5px;
+    font-family: "DM Sans",
+        Arial,
+        Helvetica,
+        sans-serif;
+    text-align: center;
+}
+
+.buyButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.watchButton {
+    margin: 10px;
+    margin-top: 0px;
+    width: max-content;
+    color: #00eaff;
+    text-decoration: none;
+    font-family: 'DM Sans',
+        sans-serif;
+    /* background-color: whitesmoke; */
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 2px 5px;
+    font-family: "DM Sans",
+        Arial,
+        Helvetica,
+        sans-serif;
+    text-align: center;
+}
+
+.watchButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.buyShares {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+#stockName {
+    line-height: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+}
+
+#stockSymbol {
+    line-height: 30px;
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+#stockPrice {
+    line-height: 30px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+#stockChange {
+    line-height: 20px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+
+.stockCount {
+    width: 40px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+    text-align: right;
+}
+.stockCount:focus {
+    border: none;  
+    outline: none; 
+}
+
+.stockChart {
+    width: 100%;
+    height: 70%;
+}
+
+
+
+.listsContainer {
+    width: 30%;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.watchlist {
+    margin: 50px;
+    width: 250px;
+    height: 350px;
+    position: relative;
+    border: solid 1px white;
 }

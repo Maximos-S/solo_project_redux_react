@@ -2,10 +2,14 @@ import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import searchReducer from './search';
+import portfolioReducer from './portfolio';
+import watchlistReducer from './watchlist';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
-    search: searchReducer
+    search: searchReducer,
+    portfolio: portfolioReducer,
+    watchlist: watchlistReducer,
 
 })
 

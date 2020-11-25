@@ -25,12 +25,12 @@ const ProfileButton = ({user, showMenu, setShowMenu}) => {
     
     return (
         <div className="profile">
-                <i className="fas fa-user-circle" onMouseEnter={openMenu} ></i>
+                <i className="profileButton" className="fas fa-user-circle fa-2x" onMouseEnter={openMenu} ></i>
             {showMenu && (
                 <ul  className="profile-dropdown">
                     <li>{user.username}</li>
                     <li>{user.email}</li>
-                    <li><button onClick={logout}>Log Out</button></li>
+                    <li><button className="specialButton" onClick={logout}>Log Out</button></li>
                 </ul>
             )}
         </div>

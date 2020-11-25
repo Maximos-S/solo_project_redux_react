@@ -1,0 +1,102 @@
+
+
+.stock {
+    color: white;
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "symbol . price"
+    "shares . updated";
+
+}
+
+.stock:hover{
+    background-color: gray;
+    cursor: pointer;
+
+}
+
+
+.portfolioHeader {
+    background-color: #1b1b1c;
+    padding: 10px;
+    color: #00eaff;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    height: 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "title valueTitle"
+    "money value"
+    ;
+    border-bottom: solid 1px white;
+}
+.portfolioTitle {
+    font-size: 20px;
+    grid-area: title;
+}
+.valueTitle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-area: valueTitle;
+}
+.money {
+    grid-area: money;
+}
+.value {
+    display: flex;
+    justify-content: flex-end;
+    grid-area: value;
+}
+.portfolioStocks{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 80%;
+}
+.portfolio {
+    margin: 50px;
+    width: 250px;
+    height: 350px;
+    margin-bottom: 0;
+    border: solid 1px white;
+    box-shadow: 0 0  5px rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+.watchlist {
+    margin: 50px;
+    width: 250px;
+    height: 350px;
+    margin-bottom: 0;
+    border: solid 1px white;
+    box-shadow: 0 0  5px rgba(255,255,255,0.5);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+.shares {
+    font-size: 12px;
+    grid-area: shares;
+}
+
+.symbol{
+    grid-area: symbol;
+}
+.price{
+    grid-area: price;
+}
+
+.updated {
+    grid-area: updated;
+    font-size: 12px;
+}

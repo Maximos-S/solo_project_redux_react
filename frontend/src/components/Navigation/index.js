@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import './navbar.css'
-import * as sessionActions from '../../store/search';
+import * as searchActions from '../../store/search';
 
 import ProfileButton from './ProfileButton';
 
@@ -21,10 +21,9 @@ const Navigation = () => {
     const [searchTerm, setSearchTerm] = useState("")
 
     const searchStock = e => {
-        console.log("search bar")
         e.preventDefault();
 
-        return dispatch(sessionActions.search({
+        return dispatch(searchActions.search({
             searchTerm
         })).catch((res) => {
             //to do
@@ -37,13 +36,13 @@ const Navigation = () => {
     return (
         <div className="navbar">
             <div className="logo">
-                <div>Logo</div>
+                <NavLink className="specialButton"to="/">Home</NavLink>
             </div>
             <form onSubmit={searchStock}>
                 <input className="searchbar" type="search" value={searchTerm}  placeholder="search by stock symbol"  onChange={changeTerm}/>
             </form>
             <div className="user-login" onMouseLeave={closeMenu}>
-                <NavLink className="specialButton"to="/">Home</NavLink>
+                
                 {sessionUser ? 
                 <div>
                     <ProfileButton user={sessionUser} showMenu={showMenu} setShowMenu={setShowMenu}/>

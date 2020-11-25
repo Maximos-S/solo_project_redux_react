@@ -5,8 +5,13 @@
     border: 0px;
     outline: none;
     color: #404040;
-    background-color: #282734;
+    background-color: #1b1b1c;
     font-weight: bold;
-    color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
 
+.signupLabel{
+    color: #1b1b1c;
 }

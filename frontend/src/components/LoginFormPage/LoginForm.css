@@ -7,4 +7,6 @@
     background-color: whitesmoke;
     color: #404040;
     font-weight: bold;
+        border: none;
+        border-radius: 5px;
 }

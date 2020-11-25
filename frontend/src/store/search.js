@@ -15,8 +15,7 @@ export const search = (searchTerm) => (async(dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({searchTerm})
     })
-    console.log("response", response.data.stock.quote)
-    dispatch(setSearchResult(response.data.stock.quote))
+    dispatch(setSearchResult(response.data.stock))
     return response
 })
 
@@ -29,7 +28,6 @@ const searchReducer = (state = initialState, action) => {
         case SEARCH_STOCK:
             newState = Object.assign({}, state);
             newState.stock = action.stock;
-            console.log(newState)
             return newState;
         default:
             return state;
