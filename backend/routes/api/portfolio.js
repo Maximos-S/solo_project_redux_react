@@ -7,29 +7,42 @@ const { User, Portfolio, Watchlist, Stock, StocksInList} = require('../../db/mod
 
 //add stock to portfolio
 router.post('/', asyncHandler(async (req,res) => {
-    // console.log(req.body)
+    console.log("req",req.body)
     const stock = req.body.stock
-    const shares = req.body.shares
+    let shares = req.body.shares
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
-    const cost = stock.latestPrice * shares
+
+    let cost = stock.latestPrice * shares
     const portfolioId = user.Portfolio.id
     const stockId = stock.id
-    // console.log("user", user.Portfolio)
+    
     const oldStock = await StocksInList.findOne({where: {stockId}})
-    user.Portfolio.buyingPower -= cost
-    await user.Portfolio.save();
+
+    //check to see if over drawing
+    let buyingPower = user.Portfolio.buyingPower
     const portfolio = user.Portfolio
+    if((buyingPower -= cost) < 0) return res.json({portfolio})
+
     
     if (oldStock) {
         console.log("oldstock cost 1",oldStock.cost)
-        oldStock.shares = Number(shares) + Number(oldStock.shares)
-        oldStock.cost = cost + Number(oldStock.cost)
-        await oldStock.save();
+        shares = Number(shares) + Number(oldStock.shares)
+        cost = cost + Number(oldStock.cost)
+        await StocksInList.update({
+            portfolioId,
+            cost,
+            shares,
+            watchlistId: null
+        },{where: {stockId}})
+        user.Portfolio.buyingPower -= cost
+        await user.Portfolio.save();
         res.json({portfolio})
         return
     }
-
+    
     const newStock = await StocksInList.create({portfolioId, stockId, shares, cost})
+    user.Portfolio.buyingPower -= cost
+    await user.Portfolio.save();
     
     res.json({portfolio})
 }))
@@ -44,25 +57,32 @@ router.delete('/', asyncHandler(async (req,res) => {
     const cost = stock.latestPrice * shares
     const portfolioId = user.Portfolio.id
     const stockId = stock.id
-    // console.log("user", user.Portfolio)
     const oldStock = await StocksInList.findOne({where: {stockId}})
-    user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(cost)
-    await user.Portfolio.save();
     const portfolio = user.Portfolio
-
+    const oldShares = oldStock.shares
     
     if (oldStock) {
         console.log("oldstock cost 1",oldStock.cost)
         oldStock.shares = Number(oldStock.shares) - Number(shares)
-        if(oldStock.shares <= 0) {
+        if(oldStock && oldStock.shares <= 0) {
+            user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(stock.latestPrice * oldShares)
+            // oldStock.shares = null;
+            // oldStock.portfolioId = null;
             await oldStock.destroy()
+            await user.Portfolio.save();
+            res.json({portfolio})
+            return
         }
+        user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(cost)
+        await user.Portfolio.save();
         oldStock.cost = Number(cost) - Number(oldStock.cost)
         await oldStock.save();
         res.json({portfolio})
         return
     }
     
+    user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(cost)
+    await user.Portfolio.save();
     res.json({portfolio})
 }))
 module.exports = router;

@@ -7,7 +7,7 @@ const { User, Portfolio, Watchlist, Stock, StocksInList} = require('../../db/mod
 
 //add stock to watchlist
 router.post('/', asyncHandler(async (req,res) => {
-    // console.log(req.body)
+    console.log("req",req.body)
     const stock = req.body.stock
     const shares = req.body.shares
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Watchlist, include: [Stock] }]})
@@ -15,12 +15,16 @@ router.post('/', asyncHandler(async (req,res) => {
     const stockId = stock.id
     const oldStock = await StocksInList.findOne({where: {stockId}})
 
+    if (oldStock && oldStock.portfolioId) {
+        return res.json({watchlist})
+    }
     const watchlist = user.Watchlist
     
     if (oldStock) {
         console.log("oldstock cost 1",oldStock.cost)
-        oldStock.watchlistId = watchlistId;
-        await oldStock.save();
+        await oldStock.update({
+            watchlistId
+        });
         res.json({watchlist})
         return
     }

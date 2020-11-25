@@ -14,7 +14,7 @@ module.exports = {
         unique: true,
       },
       symbol: {
-        type: Sequelize.STRING(4),
+        type: Sequelize.STRING(10),
         allowNull: false,
         unique: true
       },
