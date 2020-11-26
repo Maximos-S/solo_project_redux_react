@@ -6,7 +6,9 @@ import {Line} from 'react-chartjs-2'
 
 function Stock() {
     const stock = useSelector(state => state.search.stock)
+    const chart = useSelector(state => state.search.chart)
 
+    console.log("chart data", chart)
     const sessionUser = useSelector(state => state.session.user)
 
     const dispatch = useDispatch()
@@ -14,7 +16,7 @@ function Stock() {
     const [stockDetail, setStockDetail] = useState()
     const [shares, setShares] = useState(0)
     const [sell, setSellShares] = useState(0)
-    
+
     useEffect(() => {
         setStockDetail(stock, shares)
     },[stock])
@@ -71,7 +73,7 @@ function Stock() {
                 </div>
             </div>
             <div className="stockChart">
-                {/* <Line data={data}/> */}
+                <Line data={chart}/>
             </div>
         </div>
     )

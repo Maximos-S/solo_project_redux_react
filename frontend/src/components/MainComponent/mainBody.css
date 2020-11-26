@@ -20,11 +20,12 @@
 .stockBox{
     margin: 100px;
     width: 700px;
-    height: 500px;
+    padding-right: 10px;
+    height: 550px;
     display: flex;
     flex-direction: column;
-    border: solid 1px white;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    /* border: solid 1px white; */
+    /* box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); */
 }
 
 .stockInfo {
