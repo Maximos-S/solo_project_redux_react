@@ -14,6 +14,7 @@ function Stock() {
     const [stockDetail, setStockDetail] = useState()
     const [shares, setShares] = useState(0)
     const [sell, setSellShares] = useState(0)
+    
     useEffect(() => {
         setStockDetail(stock, shares)
     },[stock])
@@ -31,7 +32,7 @@ function Stock() {
         ))
     }
     const addWatchlist = e => {
-        
+
         return dispatch(watchlistActions.addToWatchlist(
             stock, sessionUser.id
         ))

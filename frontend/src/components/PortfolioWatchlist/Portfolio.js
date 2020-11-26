@@ -8,6 +8,7 @@ import './portfolio.css'
 const Portfolio = () => {
     const sessionUser = useSelector(state => state.session.user)
     const portfolio = useSelector(state => state.portfolio)
+    const stocks = useSelector(state => state.portfolio.stocks)
 
     const dispatch = useDispatch()
     
@@ -34,6 +35,7 @@ const Portfolio = () => {
         },0)
         value = value.toFixed(2)
     }
+    console.log("portfolio.stocks", portfolio.portfolio.Stocks)
 
     return (
         <div className="portfolio">
@@ -45,7 +47,8 @@ const Portfolio = () => {
             </div>
             <div className="portfolioStocks">
                 {portfolio.portfolio.Stocks && portfolio.portfolio.Stocks.map(
-                    (stock, idx) => (<PortfolioStock key={stock.id} stock={portfolio.portfolio.Stocks[idx]}/>)
+                    (stock, idx) => (<PortfolioStock key={stock.id} stock={portfolio.portfolio.Stocks[idx]}
+                    stocksList={portfolio.portfolio.Stocks.StocksInList}/>)
                 )}
             </div>
         </div>

@@ -2,7 +2,6 @@
     width: 100%;
     height: auto;
     background-color: #1b1b1c;
-    position: relative;
     display: flex;
     color: white;
 }
@@ -21,17 +20,16 @@
 .stockBox{
     margin: 100px;
     width: 700px;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-        border: solid 1px white;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-
+    border: solid 1px white;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .stockInfo {
     width: 100%;
-    height: 30%;
+    height: 40%;
     display:flex;
     box-sizing: border-box
 }

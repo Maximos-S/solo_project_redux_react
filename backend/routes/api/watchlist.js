@@ -34,30 +34,20 @@ router.post('/', asyncHandler(async (req,res) => {
 
 //remove from watchlist
 
-// router.delete('/', asyncHandler(async (req,res) => {
-//     const stock = req.body.stock
-//     const shares = req.body.shares
-//     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
-//     const cost = stock.latestPrice * shares
-//     const portfolioId = user.Portfolio.id
-//     const stockId = stock.id
-//     const oldStock = await StocksInList.findOne({where: {stockId}})
-//     user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(cost)
-//     await user.Portfolio.save();
-//     const portfolio = user.Portfolio
+router.delete('/', asyncHandler(async (req,res) => {
+    const stockId = req.body.stockId
+    const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Watchlist, include: [Stock] }]})
+    const watchlistId = user.Watchlist.id
+    const oldStock = await StocksInList.findOne({where: {stockId, watchlistId}})
+    
+    const watchlist = user.Watchlist
 
-    
-//     if (oldStock) {
-//         oldStock.shares = Number(oldStock.shares) - Number(shares)
-//         if(oldStock.shares <= 0) {
-//             await oldStock.destroy()
-//         }
-//         oldStock.cost = Number(cost) - Number(oldStock.cost)
-//         await oldStock.save();
-//         res.json({portfolio})
-//         return
-//     }
-    
-//     res.json({portfolio})
-// }))
+    await oldStock.update({
+        watchlistId: null
+    })
+
+
+    res.json({watchlist})
+
+}))
 module.exports = router;

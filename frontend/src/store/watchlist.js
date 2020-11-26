@@ -19,6 +19,7 @@ export const addToWatchlist = (stock, userId) => (async (dispatch) => {
     return response
 })
 
+
 export const getWatchlist = (userId) => (async (dispatch) => {
     const response = await fetch('/api/users/watchlist', {
         method: "POST",
@@ -29,11 +30,11 @@ export const getWatchlist = (userId) => (async (dispatch) => {
     dispatch(showWatchlist(response.data.watchlist))
     return
 })
-export const removeWatchlist = (stock, shares, userId) => (async (dispatch) => {
+export const remove = (stockId, userId) => (async (dispatch) => {
   const response = await fetch ('/api/watchlist', {
         method: 'Delete',
         headers: {'Content': 'application/json'},
-        body: JSON.stringify({stock, shares, userId})
+        body: JSON.stringify({stockId, userId})
     })
     dispatch(showWatchlist(response.data.watchlist))
     return response

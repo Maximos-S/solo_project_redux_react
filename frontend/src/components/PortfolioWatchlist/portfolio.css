@@ -26,9 +26,6 @@
     background-color: #1b1b1c;
     padding: 10px;
     color: #00eaff;
-    position: sticky;
-    top: 0px;
-    z-index: 1;
     height: 15%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -89,6 +86,11 @@
 .shares {
     font-size: 12px;
     grid-area: shares;
+}
+.remove {
+    font-size: 12px;
+    grid-area: shares;
+    color: #00eaff;
 }
 
 .symbol{

@@ -32,7 +32,7 @@ const Watchlist = () => {
             </div>
             <div className="portfolioStocks">
                 {watchlist.watchlist.Stocks && watchlist.watchlist.Stocks.map(
-                    (stock, idx) => (<PortfolioStock key={stock.id} stock={watchlist.watchlist.Stocks[idx]}/>)
+                    (stock, idx) => (<PortfolioStock key={stock.id} stock={watchlist.watchlist.Stocks[idx]} watchlist={true}/>)
                 )}
             </div>
         </div>

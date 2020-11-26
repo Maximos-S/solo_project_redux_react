@@ -8,6 +8,13 @@ const {Stock} = require("../../db/models")
 router.post('/', asyncHandler(async (req,res) => {
     const searchTerm = req.body.searchTerm.searchTerm
     const url = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/batch?types=quote,news,chart&range=1m&last=10&token=${process.env.IEX_SANDBOX_API}`
+    const url2 = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/chart/1m?token=${process.env.IEX_SANDBOX_API}`
+
+    const result2 = await fetch(url2)
+    let stock2 = await result2.json();
+    console.log("stock2", stock2)
+
+    let tableData;
 
     const result = await fetch(url)
     let stock = await result.json();
