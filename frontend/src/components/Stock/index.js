@@ -31,6 +31,7 @@ function Stock() {
         ))
     }
     const addWatchlist = e => {
+        
         return dispatch(watchlistActions.addToWatchlist(
             stock, sessionUser.id
         ))

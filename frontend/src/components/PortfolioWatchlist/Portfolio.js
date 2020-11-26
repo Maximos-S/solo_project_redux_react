@@ -39,9 +39,9 @@ const Portfolio = () => {
         <div className="portfolio">
             <div className="portfolioHeader">
             <div className="portfolioTitle">Portfolio</div>
-            {portfolio && <div className="money">cash: ${buyingPower}</div>}
-            <div className="valueTitle">value:</div>
-            <div className="value">${value}</div>
+            {portfolio && <div className="value">${buyingPower}</div>}
+            <div className="valueTitle">credit:</div>
+            <div className="money">${value}</div>
             </div>
             <div className="portfolioStocks">
                 {portfolio.portfolio.Stocks && portfolio.portfolio.Stocks.map(

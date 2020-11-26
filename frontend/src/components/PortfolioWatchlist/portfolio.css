@@ -51,8 +51,10 @@
 }
 .money {
     grid-area: money;
+    font-size: 18px;
 }
 .value {
+    font-size: 14px;
     display: flex;
     justify-content: flex-end;
     grid-area: value;
