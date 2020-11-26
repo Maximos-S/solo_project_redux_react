@@ -9,10 +9,12 @@ router.post('/', asyncHandler(async (req,res) => {
     const searchTerm = req.body.searchTerm.searchTerm
     const url = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/batch?types=quote,news,chart&range=1m&last=10&token=${process.env.IEX_SANDBOX_API}`
     const url2 = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/chart/1m?token=${process.env.IEX_SANDBOX_API}`
+    const url3 = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/news/1m?token=${process.env.IEX_SANDBOX_API}`
 
     const chartRes = await fetch(url2)
     let chart = await chartRes.json();
-    // console.log("stock2", chart)
+    const newsRes = await fetch(url3)
+    let news = await newsRes.json();
 
     const labels = chart.map(data => {
         return data.date.slice(8)
@@ -81,7 +83,7 @@ router.post('/', asyncHandler(async (req,res) => {
             latestPrice: stock.latestPrice,
         });
         stock = updated
-        const stockData = {stock, chartData}
+        const stockData = {stock, chartData, news}
         console.log(stockData)
         return res.json({stockData})
     }
@@ -99,7 +101,7 @@ router.post('/', asyncHandler(async (req,res) => {
     })
     
     
-    const stockData = {stock, chartData}
+    const stockData = {stock, chartData, news}
     res.json({stockData})
 }))
 

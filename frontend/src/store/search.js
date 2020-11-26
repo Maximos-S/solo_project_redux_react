@@ -2,6 +2,7 @@ import {fetch} from './csrf'
 
 const SEARCH_STOCK = 'search/stock';
 const SEARCH_CHART = 'search/chart'
+const SEARCH_NEWS = 'search/news'
 
 const setSearchResult = (stock) => {
     return {
@@ -17,6 +18,13 @@ const setChartResult = (chart) => {
     }
 }
 
+const setNewsResult = (news) => {
+    return {
+        type: SEARCH_NEWS,
+        news
+    }
+}
+
 export const search = (searchTerm) => (async(dispatch) => {
     const response = await fetch('/api/search', {
         method: 'Post',
@@ -26,10 +34,11 @@ export const search = (searchTerm) => (async(dispatch) => {
     dispatch(setSearchResult(response.data.stockData.stock))
     console.log("reducer", response)
     dispatch(setChartResult(response.data.stockData.chartData))
+    dispatch(setNewsResult(response.data.stockData.news))
     return response
 })
 
-const initialState = { stock: null, chart: null}
+const initialState = { stock: null, chart: null, news: null}
 
 const searchReducer = (state = initialState, action) => {
     let newState;
@@ -42,6 +51,10 @@ const searchReducer = (state = initialState, action) => {
         case SEARCH_CHART:
             newState = Object.assign({}, state);
             newState.chart = action.chart;
+            return newState;
+        case SEARCH_NEWS:
+            newState = Object.assign({}, state);
+            newState.news = action.news;
             return newState;
         default:
             return state;
