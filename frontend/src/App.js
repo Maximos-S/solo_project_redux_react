@@ -21,7 +21,7 @@ function App() {
 
   return (
     <main>
-      {!isLoaded ? <div className="loading">Loading...</div> :
+      {!isLoaded ? <div className="loading">loading...</div> :
         !sessionUser ? 
           <div className="user-auth-page">
             <LoginFormPage></LoginFormPage>

@@ -4,6 +4,7 @@
     background-color: #1b1b1c;
     display: flex;
     color: white;
+
 }
 
 .stockContainer {
@@ -15,6 +16,13 @@
     justify-content: space-around;
     align-items: center;
 
+}
+
+.newsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .stockBox{
@@ -40,72 +48,7 @@
     padding: 20px;
     box-sizing: border-box
 }
-.stockButtons {
-    width: 60%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-end;
 
-}
-
-.buyButton {
-    margin: 10px;
-    margin-left: 0px;
-    margin-top: 0px;
-    width: max-content;
-    color: #00eaff;
-    text-decoration: none;
-    font-family: 'DM Sans',
-        sans-serif;
-    /* background-color: whitesmoke; */
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 2px 5px;
-    font-family: "DM Sans",
-        Arial,
-        Helvetica,
-        sans-serif;
-    text-align: center;
-}
-
-.buyButton:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-.watchButton {
-    margin: 10px;
-    margin-top: 0px;
-    width: max-content;
-    color: #00eaff;
-    text-decoration: none;
-    font-family: 'DM Sans',
-        sans-serif;
-    /* background-color: whitesmoke; */
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    padding: 2px 5px;
-    font-family: "DM Sans",
-        Arial,
-        Helvetica,
-        sans-serif;
-    text-align: center;
-}
-
-.watchButton:hover {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-
-.buyShares {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
 #stockName {
     line-height: 30px;
     margin-top: 0px;
@@ -131,20 +74,9 @@
     padding: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: 20px;
 }
 
-.stockCount {
-    width: 40px;
-    height: 20px;
-    border: none;
-    border-radius: 10px;
-    text-align: right;
-}
-.stockCount:focus {
-    border: none;  
-    outline: none; 
-}
+
 
 .stockChart {
     width: 100%;
@@ -161,13 +93,16 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    position: sticky;
+    top: 100px;
 }
 
 
 .watchlist {
     margin: 50px;
+    margin-top: 0;
     width: 250px;
-    height: 350px;
+    height: 250px;
     position: relative;
     border: solid 1px white;
 }

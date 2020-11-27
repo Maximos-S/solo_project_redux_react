@@ -6,6 +6,7 @@ import Portfolio from '../PortfolioWatchlist/Portfolio'
 import Watchlist from '../PortfolioWatchlist/Watchlist'
 import './mainBody.css'
 import News from '../Stock/News';
+import Profile from '../Profile/Profile';
 
 
 function Main() {
@@ -23,8 +24,8 @@ function Main() {
   return (
     <div className="mainBody">
         <div className="stockContainer">
-            {stockDetail && <Stock />}
-            <div>
+            {stockDetail? <Stock /> : <Profile />}
+            <div className="newsContainer">
               {news && news.map((story, idx) => (
                 <News key={idx} story={story} />
               ))}

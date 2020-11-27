@@ -64,7 +64,8 @@
 .portfolio {
     margin: 50px;
     width: 250px;
-    height: 350px;
+    height: 300px;
+    margin-top: 25px;
     margin-bottom: 0;
     border: solid 1px white;
     box-shadow: 0 0  5px rgba(255,255,255,0.5);

@@ -25,11 +25,11 @@ const setNewsResult = (news) => {
     }
 }
 
-export const search = (searchTerm) => (async(dispatch) => {
+export const search = (searchTerm, portfolioId) => (async(dispatch) => {
     const response = await fetch('/api/search', {
         method: 'Post',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({searchTerm})
+        body: JSON.stringify({searchTerm, portfolioId})
     })
     dispatch(setSearchResult(response.data.stockData.stock))
     console.log("reducer", response)

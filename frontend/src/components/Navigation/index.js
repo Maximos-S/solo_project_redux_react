@@ -9,7 +9,7 @@ import ProfileButton from './ProfileButton';
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user)
-
+    const portfolioId = useSelector(state => state.portfolio.portfolio.id)
 
     const dispatch = useDispatch()
 
@@ -24,7 +24,8 @@ const Navigation = () => {
         e.preventDefault();
 
         return dispatch(searchActions.search({
-            searchTerm
+            searchTerm,
+            portfolioId
         })).catch((res) => {
             //to do
         })

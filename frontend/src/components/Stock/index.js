@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import * as portfolioActions from '../../store/portfolio';
 import * as watchlistActions from '../../store/watchlist';
 import {Line} from 'react-chartjs-2'
+import './news.css'
 
 function Stock() {
     const stock = useSelector(state => state.search.stock)
@@ -46,6 +47,7 @@ function Stock() {
         ))
     }
 
+
     // let data = {
     //     label: [],
     //     datasets: [{label: data: borderColor: },{}]
@@ -61,15 +63,16 @@ function Stock() {
                     </h2>}
                     {stockDetail && <h1 id="stockPrice">${stockDetail.latestPrice}</h1>}
                     {stockDetail && <h4 id="stockChange">{stockDetail.percentChange}%</h4>}  
+                    <div className="watchButton" onClick={addWatchlist}>watch</div>
                 </div>
                 <div className="stockButtons">
-                    <div className="watchButton" onClick={addWatchlist}>watch</div>
-                    <div className="buyShares">
-                    <input type="number" min="0" className="stockCount" onChange={setShareNumber} value={shares}/>
+                    {stockDetail && stockDetail.StocksInLists && <div class="stockShares">shares owned: {stockDetail.StocksInLists[0].shares}</div>}  
+
+                    <input className="buyInput" type="number" min="0"  onChange={setShareNumber} value={shares}/>
                     <div className="buyButton" onClick={addPortfolio}>buy shares</div>
-                    <input type="number" min="0" className="stockCount" onChange={setSellNumber} value={sell}/>
-                    <div className="buyButton" onClick={sellPortfolio}>sell shares</div>
-                    </div>
+                    <input className="sellInput" type="number" min="0" onChange={setSellNumber} value={sell}/>
+                    <div className="sellButton" onClick={sellPortfolio}>sell shares</div>
+
                 </div>
             </div>
             <div className="stockChart">

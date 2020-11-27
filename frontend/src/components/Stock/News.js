@@ -6,8 +6,9 @@ import * as watchlistActions from '../../store/watchlist';
 const News = ({story}) => {
 
     return (
-        <div>
-            {story.summary}
+        <div className="newsArticle">
+            <img className="newsImg" src={`${story.image}`} alt="news"/>
+            <div className="summary">{story.summary}</div>
         </div>
     );
 };
