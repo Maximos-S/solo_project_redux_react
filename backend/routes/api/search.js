@@ -74,9 +74,13 @@ router.post('/', asyncHandler(async (req,res) => {
     const symbol = stock.symbol
 
     const portfolioId = req.body.searchTerm.portfolioId
-    const savedStock = await Stock.findOne({where: {symbol: symbol}, include:  [{model: Portfolio, include: [Stock] }, {model: StocksInList, where: {portfolioId}}]})
+    let savedStock = await Stock.findOne({where: {symbol: symbol}, include:  [{model: Portfolio, include: [Stock] }, {model: StocksInList, where: {portfolioId}}]})
+    if (!savedStock) {
+        savedStock = await Stock.findOne({where: {symbol: symbol}, include:  [{model: Portfolio, include: [Stock] },]})
+    }
     let lastUpdated = new Date()
     lastUpdated = lastUpdated.toLocaleDateString("en-Us")
+
     if (savedStock) {
         const updated = await savedStock.update({
             lastUpdated, 
@@ -91,8 +95,7 @@ router.post('/', asyncHandler(async (req,res) => {
     
     const companyName = stock.companyName
     
-    
-    
+    console.log("hits")
     stock = await Stock.create({
         symbol,
         companyName,
