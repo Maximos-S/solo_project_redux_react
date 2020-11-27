@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       }
       Stock.belongsToMany(models.Portfolio, columnMappingPortfolio)
       Stock.belongsToMany(models.Watchlist, columnMappingWatchlist)
+      Stock.hasMany(models.StocksInList, {foreignKey: "stockId"})
     }
   };
   Stock.init({

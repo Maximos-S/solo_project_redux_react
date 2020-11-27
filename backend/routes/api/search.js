@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
 const fetch = require("node-fetch")
-const {Stock} = require("../../db/models")
+const {Stock, Portfolio, StocksInList, User} = require("../../db/models")
 
 //search for stock and create new stock
 router.post('/', asyncHandler(async (req,res) => {
     const searchTerm = req.body.searchTerm.searchTerm
     const url = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/batch?types=quote,news,chart&range=1m&last=10&token=${process.env.IEX_SANDBOX_API}`
     const url2 = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/chart/1m?token=${process.env.IEX_SANDBOX_API}`
-    const url3 = `https://sandbox.iexapis.com/stable/stock/${searchTerm}/news/1m?token=${process.env.IEX_SANDBOX_API}`
+    const url3 = `https://cloud.iexapis.com/stable/stock/${searchTerm}/news/1m?token=${process.env.IEX_CLOUD_API}`
 
     const chartRes = await fetch(url2)
     let chart = await chartRes.json();
@@ -70,10 +70,11 @@ router.post('/', asyncHandler(async (req,res) => {
     
     const result = await fetch(url)
     let stock = await result.json();
-    console.log(chartData)
     stock = stock.quote
     const symbol = stock.symbol
-    const savedStock = await Stock.findOne({where: {symbol: symbol}})
+
+    const portfolioId = req.body.searchTerm.portfolioId
+    const savedStock = await Stock.findOne({where: {symbol: symbol}, include:  [{model: Portfolio, include: [Stock] }, {model: StocksInList, where: {portfolioId}}]})
     let lastUpdated = new Date()
     lastUpdated = lastUpdated.toLocaleDateString("en-Us")
     if (savedStock) {

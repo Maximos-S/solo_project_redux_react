@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       }
       Portfolio.belongsTo(models.User, {foreignKey: "userId"})
       Portfolio.belongsToMany(models.Stock, columnMapping)
+      Portfolio.hasMany(models.StocksInList, {foreignKey: "portfolioId"})
     }
   };
   Portfolio.init({

@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      StocksInList.belongsTo(models.Portfolio, {foreignKey: "portfolioId"})
+      StocksInList.belongsTo(models.Stock, {foreignKey: "stockId"})
     }
   };
   StocksInList.init({
