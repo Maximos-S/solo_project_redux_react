@@ -14,10 +14,11 @@ router.post('/', asyncHandler(async (req,res) => {
     const stockId = stock.id
     const oldStock = await StocksInList.findOne({where: {stockId}})
 
-    if (oldStock && oldStock.portfolioId) {
+    const watchlist = user.Watchlist
+    if (oldStock && oldStock.portfolioId === watchlistId) {
+
         return res.json({watchlist})
     }
-    const watchlist = user.Watchlist
     
     if (oldStock) {
         await oldStock.update({

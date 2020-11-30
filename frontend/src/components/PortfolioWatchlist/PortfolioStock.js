@@ -38,11 +38,11 @@ const PortfolioStock = ({stock, stocksList, watchlist}) => {
     return (
         <div className="stock" onClick={searchStock}>
             <div className="symbol" >{stock.symbol}</div>
-            {stock.StocksInList && 
+            {watchlist?
+             <div className="remove" onClick={removeWatchlist}>remove</div> :
+            stock.StocksInList && 
              stock.StocksInList.shares &&
              <div className="shares">{stock.StocksInList.shares} Shares</div>}
-            {watchlist &&
-             <div className="remove" onClick={removeWatchlist}>remove</div>}
             <div className="price">${stock.latestPrice}</div>
             <div className="updated">{updatedAt}</div>
         </div>
