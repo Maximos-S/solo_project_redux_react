@@ -57,12 +57,14 @@ function Stock() {
         <div className="stockBox">
             <div className="stockInfo">
                 <div className="stockText">
-                    {stockDetail && <h2 id="stockName">
+                    {stockDetail && <h2 className="stockName">
                         {stockDetail.companyName}
-                        <p id="stockSymbol">({stockDetail.symbol})</p>
+                        <p className="stockSymbol">({stockDetail.symbol})</p>
                     </h2>}
-                    {stockDetail && <h1 id="stockPrice">${stockDetail.latestPrice}</h1>}
-                    {stockDetail && <h4 id="stockChange">{stockDetail.percentChange}%</h4>}  
+                    {stockDetail && <h1 className="stockPrice">${stockDetail.latestPrice}</h1>}
+                    {stockDetail && <h4 className="stockChange" id={stockDetail.percentChange < 0?"redGain":"greenGain"}>
+                        {stockDetail.percentChange}%
+                        </h4>}  
                     <div className="watchButton" onClick={addWatchlist}>watch</div>
                 </div>
                 <div className="stockButtons">

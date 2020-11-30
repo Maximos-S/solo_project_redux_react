@@ -162,3 +162,58 @@
     sans-serif;
     text-align: center;
 }
+
+.stockInfo {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    box-sizing: border-box
+}
+
+.stockText {
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box
+}
+
+.stockName {
+    line-height: 30px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.stockSymbol {
+    line-height: 30px;
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+.stockPrice {
+    line-height: 30px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.stockChange {
+    line-height: 20px;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+.stockChart {
+    width: 100%;
+    height: 70%;
+}
+
+.netGain {
+    display: flex;
+    
+}

@@ -36,52 +36,6 @@
     /* box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); */
 }
 
-.stockInfo {
-    width: 100%;
-    height: 40%;
-    display:flex;
-    box-sizing: border-box
-}
-.stockText {
-    width: 40%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box
-}
-
-#stockName {
-    line-height: 30px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    display: flex;
-}
-
-#stockSymbol {
-    line-height: 30px;
-    margin-top: 2px;
-    margin-left: 5px;
-    margin-bottom: 0px;
-    font-size: 18px;
-}
-#stockPrice {
-    line-height: 30px;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-#stockChange {
-    line-height: 20px;
-    padding: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-
-
-.stockChart {
-    width: 100%;
-    height: 70%;
-}
 
 
 
@@ -105,4 +59,12 @@
     height: 250px;
     position: relative;
     border: solid 1px white;
+}
+
+#redGain {
+    color: rgb(255, 80, 0)
+}
+
+#greenGain {
+    color: rgb(0, 200, 5)
 }

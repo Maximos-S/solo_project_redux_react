@@ -6,7 +6,7 @@ import Portfolio from '../PortfolioWatchlist/Portfolio'
 import Watchlist from '../PortfolioWatchlist/Watchlist'
 import './mainBody.css'
 import News from '../Stock/News';
-import Profile from '../Profile/Profile';
+import Profile from '../Stock/Profile';
 
 
 function Main() {

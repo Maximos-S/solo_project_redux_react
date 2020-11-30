@@ -4,7 +4,7 @@ const SEARCH_STOCK = 'search/stock';
 const SEARCH_CHART = 'search/chart'
 const SEARCH_NEWS = 'search/news'
 
-const setSearchResult = (stock) => {
+export const setSearchResult = (stock) => {
     return {
         type: SEARCH_STOCK,
         stock
