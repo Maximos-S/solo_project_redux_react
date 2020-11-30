@@ -34,14 +34,14 @@ const Navigation = () => {
         setSearchTerm(e.target.value)
     }
 
-    // const reset = e => {
-    //     return(dispatch(searchActions.setSearchResult()))
-    // }
+    const reset = e => {
+        return(dispatch(searchActions.setSearchResult()))
+    }
 
     return (
         <div className="navbar">
             <div className="logo">
-                <NavLink className="specialButton"to="/" >littleJon</NavLink>
+                <NavLink className="specialButton"to="/" onClick={reset}>littleJon</NavLink>
             </div>
             <form onSubmit={searchStock}>
                 <input className="searchbar" type="search" value={searchTerm}  placeholder="search by stock symbol"  onChange={changeTerm}/>
