@@ -11,7 +11,6 @@ const Watchlist = () => {
 
     const dispatch = useDispatch()
     
-    console.log("watchlist", watchlist)
     useEffect(() => {
         getWatchlist()
     }, []);

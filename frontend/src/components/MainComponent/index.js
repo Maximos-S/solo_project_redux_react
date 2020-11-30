@@ -20,7 +20,6 @@ function Main() {
       setStockDetail(stock)
   },[stock])
 
-  console.log("render")
   return (
     <div className="mainBody">
         <div className="stockContainer">

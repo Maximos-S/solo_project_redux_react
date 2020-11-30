@@ -19,7 +19,6 @@ const PortfolioStock = ({stock, stocksList, watchlist}) => {
     }, []);
     
     const searchStock = (e) => {   
-        console.log("portfolio id", portfolioId)
         if (e.target.className === "remove") return 
         const searchTerm = stock.symbol
         return dispatch(searchActions.search({
@@ -32,12 +31,10 @@ const PortfolioStock = ({stock, stocksList, watchlist}) => {
 
     
     const removeWatchlist = (e) => {
-        console.log("stock",stock)
         return dispatch(watchlistActions.remove(stock.id, sessionUser.id))
     }
 
     const updatedAt = stock.lastUpdated.slice(0,10)
-    console.log(stock)
     return (
         <div className="stock" onClick={searchStock}>
             <div className="symbol" >{stock.symbol}</div>

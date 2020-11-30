@@ -32,7 +32,6 @@ export const search = (searchTerm, portfolioId) => (async(dispatch) => {
         body: JSON.stringify({searchTerm, portfolioId})
     })
     dispatch(setSearchResult(response.data.stockData.stock))
-    console.log("reducer", response)
     dispatch(setChartResult(response.data.stockData.chartData))
     dispatch(setNewsResult(response.data.stockData.news))
     return response

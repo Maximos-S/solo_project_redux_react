@@ -9,7 +9,6 @@ function Stock() {
     const stock = useSelector(state => state.search.stock)
     const chart = useSelector(state => state.search.chart)
 
-    console.log("chart data", chart)
     const sessionUser = useSelector(state => state.session.user)
 
     const dispatch = useDispatch()

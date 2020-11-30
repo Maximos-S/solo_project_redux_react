@@ -35,7 +35,6 @@ const Portfolio = () => {
         },0)
         value = value.toFixed(2)
     }
-    console.log("portfolio.stocks", portfolio.portfolio.Stocks)
 
     return (
         <div className="portfolio">

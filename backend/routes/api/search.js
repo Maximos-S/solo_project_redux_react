@@ -71,13 +71,11 @@ router.post('/', asyncHandler(async (req,res) => {
         });
         stock = updated
         const stockData = {stock, chartData, news}
-        console.log(stockData)
         return res.json({stockData})
     }
     
     const companyName = stock.companyName
     
-    console.log("hits")
     stock = await Stock.create({
         symbol,
         companyName,
