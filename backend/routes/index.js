@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
   // });
 
   // Serve the static assets in the frontend's build folder
-  router.use(express.static("/static", path.resolve('../../frontend/build/static')));
+  router.use("/static", express.static(path.resolve('../../frontend/build/static')));
 
   // Serve the frontend's index.html file at all other routes NOT starting with /api  
   router.get(/^(?!\/?api).*/, (req, res) => {
