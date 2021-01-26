@@ -25,7 +25,7 @@ if (!isProduction) {
 }
 
 app.use(helmet({
-    contentSecurityPolice: false
+    contentSecurityPolicy: false
 }));
 
 app.use(
