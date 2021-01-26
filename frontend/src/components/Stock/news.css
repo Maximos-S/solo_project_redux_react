@@ -22,8 +22,6 @@
     overflow: scroll;
 }
 
-/* stock card */
-
 .stockButtons {
     width: 60%;
     height: 100%;
@@ -50,7 +48,6 @@
     text-decoration: none;
     font-family: 'DM Sans',
         sans-serif;
-    /* background-color: whitesmoke; */
     border: none;
     border-radius: 5px;
     font-size: 15px;

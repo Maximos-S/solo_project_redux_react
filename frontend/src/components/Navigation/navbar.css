@@ -83,6 +83,10 @@
     
 }
 
+.profileButton {
+    font-size: 35px;
+}
+
 .profile {
     display: flex;
     justify-content: center;

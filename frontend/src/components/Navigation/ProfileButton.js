@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux'
+import {FaUserCircle} from 'react-icons/fa'
 import * as sessionActions from '../../store/session'
 
 const ProfileButton = ({user, showMenu, setShowMenu}) => {
@@ -25,7 +26,7 @@ const ProfileButton = ({user, showMenu, setShowMenu}) => {
     
     return (
         <div className="profile">
-                <i className="profileButton" className="fas fa-user-circle fa-2x" onMouseEnter={openMenu} ></i>
+                <FaUserCircle className="profileButton" onMouseEnter={openMenu} />
             {showMenu && (
                 <ul  className="profile-dropdown">
                     <li>{user.username}</li>
