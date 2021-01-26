@@ -10,13 +10,12 @@ router.use('/api', apiRouter);
 if (process.env.NODE_ENV === 'production') {
   const path = require('path');
   // Serve the frontend's index.html file at the root route
-  router.get('/', (req, res) => {
-    res.cookie('XSRF-TOKEN', req.csrfToken());
-    res.set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
-    res.sendFile(
-      path.resolve(__dirname, '../../frontend', 'build', 'index.html')
-    );
-  });
+  // router.get('/', (req, res) => {
+  //   res.cookie('XSRF-TOKEN', req.csrfToken());
+  //   res.sendFile(
+  //     path.resolve(__dirname, '../../frontend', 'build', 'index.html')
+  //   );
+  // });
 
   // Serve the static assets in the frontend's build folder
   router.use(express.static(path.resolve('../../frontend/build')));
