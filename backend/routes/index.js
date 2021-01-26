@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === 'production') {
   // Serve the frontend's index.html file at the root route
   router.get('/', (req, res) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
+    res.set("Content-Security-Policy", "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'")
     res.sendFile(
       path.resolve(__dirname, '../../frontend', 'build', 'index.html')
     );
@@ -20,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
   // Serve the static assets in the frontend's build folder
   router.use(express.static(path.resolve('../../frontend/build')));
 
-  // Serve the frontend's index.html file at all other routes NOT starting with /api
+  // Serve the frontend's index.html file at all other routes NOT starting with /api  
   router.get(/^(?!\/?api).*/, (req, res) => {
     res.cookie('XSRF-TOKEN', req.csrfToken());
     res.sendFile(
