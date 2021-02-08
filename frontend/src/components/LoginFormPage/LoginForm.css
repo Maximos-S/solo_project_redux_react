@@ -10,3 +10,9 @@
         border: none;
         border-radius: 5px;
 }
+
+.loginErrorContainer {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}

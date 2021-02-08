@@ -11,7 +11,14 @@
     border: none;
     border-radius: 5px;
 }
-
+.signup {
+}
 .signupLabel{
     color: #1b1b1c;
+}
+
+.signupErrorContainer {
+    position: absolute;
+    top:5%;
+    width: 80%;
 }

@@ -8,10 +8,13 @@ import Navigation from './components/Navigation';
 import { fetch } from './store/csrf';
 import Stock from './components/Stock';
 import Main from './components/MainComponent';
+import Partition from './components/LoginFormPage/Partition';
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loginRevealed, setLoginRevealed] = useState(true)
+  const [signupRevealed, setSignupRevealed] = useState(false)
 
   const sessionUser = useSelector(state => state.session.user)
 
@@ -24,8 +27,19 @@ function App() {
       {!isLoaded ? <div className="loading">loading...</div> :
         !sessionUser ? 
           <div className="user-auth-page">
-            <LoginFormPage></LoginFormPage>
-            <SignUpFormPage></SignUpFormPage>
+            <LoginFormPage 
+              loginRevealed={loginRevealed} 
+              setLoginRevealed={setLoginRevealed}
+              signupRevealed={signupRevealed}
+              setSignupRevealed={setSignupRevealed}
+            />
+            <Partition />
+            <SignUpFormPage
+              loginRevealed={loginRevealed} 
+              setLoginRevealed={setLoginRevealed}
+              signupRevealed={signupRevealed}
+              setSignupRevealed={setSignupRevealed}
+            />
           </div> 
           :
           <>

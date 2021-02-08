@@ -40,9 +40,9 @@ const Navigation = () => {
 
     return (
         <div className="navbar">
-            <div className="logo">
-                <NavLink className="specialButton"to="/" onClick={reset}>littleJon</NavLink>
-            </div>
+                <NavLink className="specialButton"to="/" onClick={reset}>
+                    <img className="logo" src="littlejonlogo.svg" alt="logo"/>
+                </NavLink>
             <form onSubmit={searchStock}>
                 <input className="searchbar" type="search" value={searchTerm}  placeholder="search by stock symbol"  onChange={changeTerm}/>
             </form>
