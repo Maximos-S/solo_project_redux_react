@@ -35,6 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow:hidden;
 }
 
 #signupButton {
@@ -53,13 +54,14 @@
     width: 300px;
 }
 .aboutLoginParagraph {
-    color: #00eaff;
+    padding: 20px;
+    color: whitesmoke;
     position: absolute;
     top: 0px;
 }
 
 .aboutLogo {
-    height: 100px;
+    height: 70px;
     background-image: url('../../littlejonlogo.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -76,4 +78,14 @@
     object-position: 20% 50%;
     background-repeat: no-repeat;
     background-image: url('../../littlejonillustration.svg')
+}
+#signupIllustration {
+    position: absolute;
+    top: -100px;
+    left: -10px;
+    min-height: 135vh;
+    min-width: 900px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../../littlejonillustration2.svg')
 }

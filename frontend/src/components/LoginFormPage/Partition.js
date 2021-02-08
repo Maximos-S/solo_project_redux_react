@@ -34,8 +34,8 @@ const Partition = () => {
                 <div className="loginIllustration"></div>
             </div>
             <div id="signupPartition">
+                <div id="signupIllustration"></div>
                 <div  className="aboutSignUpParagraph">
-                    <div class="aboutLogo"></div>
                 </div>
             </div>
         </>
