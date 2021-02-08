@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import './navbar.css'
 import * as searchActions from '../../store/search';
-
 import ProfileButton from './ProfileButton';
 
 
 const Navigation = () => {
     const sessionUser = useSelector(state => state.session.user)
     const portfolioId = useSelector(state => state.portfolio.portfolio.id)
+    const [searchTerm, setSearchTerm] = useState("")
 
+    let history = useHistory()
     const dispatch = useDispatch()
 
     const [showMenu, setShowMenu] = useState(false)
@@ -18,7 +19,11 @@ const Navigation = () => {
         setShowMenu(false);
     }
 
-    const [searchTerm, setSearchTerm] = useState("")
+    const rerouteProfile = (e) => {
+        reset();
+        history.push("/")
+    }
+
 
     const searchStock = e => {
         e.preventDefault();
@@ -35,14 +40,13 @@ const Navigation = () => {
     }
 
     const reset = e => {
+        dispatch(searchActions.setNewsResult())
         return(dispatch(searchActions.setSearchResult()))
     }
 
     return (
         <div className="navbar">
-                <NavLink className="specialButton"to="/" onClick={reset}>
-                    <img className="logo" src="littlejonlogo.svg" alt="logo"/>
-                </NavLink>
+            <div className="logo" onClick={rerouteProfile}/>
             <form onSubmit={searchStock}>
                 <input className="searchbar" type="search" value={searchTerm}  placeholder="search by stock symbol"  onChange={changeTerm}/>
             </form>

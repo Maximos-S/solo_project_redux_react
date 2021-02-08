@@ -11,14 +11,14 @@ export const setSearchResult = (stock) => {
     }
 }
 
-const setChartResult = (chart) => {
+export const setChartResult = (chart) => {
     return {
         type: SEARCH_CHART,
         chart
     }
 }
 
-const setNewsResult = (news) => {
+export const setNewsResult = (news) => {
     return {
         type: SEARCH_NEWS,
         news

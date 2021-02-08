@@ -27,13 +27,16 @@ const Partition = () => {
     return (
         <>
             <div id="loginPartition">
-                <div  className="aboutParagraph">
-                    <h1>littleJon...</h1>
+                <div  className="aboutLoginParagraph">
+                    <div class="aboutLogo"></div>
                     <p>was created by Maximos Salzman.</p>
                 </div>
                 <div className="loginIllustration"></div>
             </div>
             <div id="signupPartition">
+                <div  className="aboutSignUpParagraph">
+                    <div class="aboutLogo"></div>
+                </div>
             </div>
         </>
     );

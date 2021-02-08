@@ -23,9 +23,9 @@
 }
 
 #signupPartition {
+    position: fixed;
     box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.25);
     transition: all 1s linear;
-    position: fixed;
     right: 0px;
     top: 0px;
     height: 100vh;
@@ -45,10 +45,25 @@
     z-index: 2;
 }
 
-.aboutParagraph {
+.aboutSignUpParagraph {
+    color: #00eaff;
+    position: absolute;
+    bottom: 0px;
+    height:100px;
+    width: 300px;
+}
+.aboutLoginParagraph {
     color: #00eaff;
     position: absolute;
     top: 0px;
+}
+
+.aboutLogo {
+    height: 100px;
+    background-image: url('../../littlejonlogo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('../../littlejonlogo.svg');
 }
 
 .loginIllustration {
