@@ -106,9 +106,9 @@
 #signupIllustration {
     position: absolute;
     top: -100px;
-    left: -10px;
+    left: 0px;
     min-height: 135vh;
-    min-width: 900px;
+    min-width: 70vw;
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url('../../littlejonillustration2.svg')
