@@ -24,7 +24,19 @@ const Profile = () => {
                     "borderColor": "#00eaFF"}, 
                     ], 
                     "labels": []}
-    let chart2 = {"datasets": [{"data": [], "label": "Shares", "borderColor": "#00eaFF", "borderWidth": 2}], "labels": []}
+    let chart2 = {"datasets": [{"data": [], "label": "Shares", "borderColor": "#00eaFF", "borderWidth": 2}], "labels": [],}
+    let options = {
+                    "scales": {
+                        "yAxes": [{
+                            "display": true,
+                            "ticks": {
+                                "suggestedMin": 0,
+                                "stepSize": 1,
+                            }
+                        }]
+                    }
+
+                }
     if (portfolio.buyingPower){
         buyingPower = Number(portfolio.buyingPower).toFixed(2);
         value = portfolio.Stocks.reduce( (total, stock) => {
@@ -44,7 +56,7 @@ const Profile = () => {
     
             netGain = "greenGain"
         }
-        if (portfolio.Stocks) {
+        if (portfolio.Stocks && portfolio.StocksInLists) {
             let stockTuples = {}
             portfolio.Stocks.forEach((stock, idx) => {
                 stockTuples[stock.id] = [`${stock.symbol}: $${stock.latestPrice}`,stock.latestPrice]
@@ -79,8 +91,8 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="stockCharts">
-                    <Bar data={chart}/>
-                    <Bar data={chart2}/>
+                    <Bar data={chart} />
+                    <Bar data={chart2} options={options}/>
                 </div>
             </div>
     );
