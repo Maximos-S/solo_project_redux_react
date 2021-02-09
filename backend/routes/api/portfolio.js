@@ -11,7 +11,6 @@ router.post('/', asyncHandler(async (req,res) => {
     const stock = req.body.stock
     let shares = req.body.shares
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Portfolio, include: [Stock] }]})
-
     let cost = stock.latestPrice * shares
     const portfolioId = user.Portfolio.id
     const stockId = stock.id
@@ -21,6 +20,8 @@ router.post('/', asyncHandler(async (req,res) => {
     //check to see if over drawing
     let buyingPower = user.Portfolio.buyingPower
     const portfolio = user.Portfolio
+
+    console.log("user",portfolio)
     if((buyingPower -= cost) < 0) return res.json({portfolio})
 
     

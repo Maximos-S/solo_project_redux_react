@@ -89,4 +89,7 @@ router.post('/', asyncHandler(async (req,res) => {
     res.json({stockData})
 }))
 
+
+
+
 module.exports = router;

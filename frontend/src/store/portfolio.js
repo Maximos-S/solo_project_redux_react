@@ -23,6 +23,7 @@ export const addToPortfolio = (stock, shares, userId) => (async (dispatch) => {
         headers: {'Content': 'application/json'},
         body: JSON.stringify({stock, shares, userId})
     })
+    console.log("dispatch",response.data)
     dispatch(showPortfolio(response.data.portfolio))
     return response
 })
