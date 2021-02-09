@@ -64,14 +64,19 @@ const Profile = () => {
             portfolio.StocksInLists.forEach(stock => {
                 const equity = stock.shares * stockTuples[stock.stockId][1]
                 stockTuples[stock.stockId].push(equity)
-                chart.datasets[1].data.push(stock.cost)
-                chart.datasets[2].data.push((equity - stock.cost).toFixed(2))
-                chart2.datasets[0].data.push(stock.shares)
+                stockTuples[stock.stockId].push(stock.cost)
+                stockTuples[stock.stockId].push((equity - stock.cost).toFixed(2))
+                stockTuples[stock.stockId].push(stock.shares)
+                // chart.datasets[1].data.push(stock.cost)
+                // chart.datasets[2].data.push((equity - stock.cost).toFixed(2))
             })
             for (const item in stockTuples) {
                 chart.labels.push(stockTuples[item][0])
-                chart2.labels.push(stockTuples[item][0])
                 chart.datasets[0].data.push(stockTuples[item][2])
+                chart.datasets[1].data.push(stockTuples[item][3])
+                chart.datasets[2].data.push(stockTuples[item][4])
+                chart2.labels.push(stockTuples[item][0])
+                chart2.datasets[0].data.push(stockTuples[item][5])
             }
 
         }
