@@ -71,9 +71,8 @@
     color: gray;
 }
 .searchbar:focus {
-    background-color: gray;
     border: none;
-    color: white;
+    color: ##1b1b1c;
 }
 
 .logo {

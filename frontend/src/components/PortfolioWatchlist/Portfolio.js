@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import * as portfolioActions from '../../store/portfolio';
+import * as searchActions from '../../store/search';
 import PortfolioStock from './PortfolioStock';
 import './portfolio.css'
 
@@ -11,7 +13,15 @@ const Portfolio = () => {
     const stocks = useSelector(state => state.portfolio.stocks)
 
     const dispatch = useDispatch()
-    
+    let history = useHistory();
+    const rerouteProfile = (e) => {
+        reset();
+        history.push("/")
+    }
+    const reset = e => {
+        dispatch(searchActions.setNewsResult())
+        return(dispatch(searchActions.setSearchResult()))
+    }
 
     useEffect(() => {
         getPortfolio()
@@ -39,7 +49,7 @@ const Portfolio = () => {
     return (
         <div className="portfolio">
             <div className="portfolioHeader">
-            <div className="portfolioTitle">Portfolio</div>
+            <div className="portfolioTitle" onClick={rerouteProfile}>Portfolio</div>
             {portfolio && <div className="value">${buyingPower}</div>}
             <div className="valueTitle">credit:</div>
             <div className="money">${value}</div>
