@@ -49,6 +49,21 @@ const LoginFormPage = ({loginRevealed, setLoginRevealed, setSignupRevealed}) => 
         }
         
     }
+
+    const loginDemo = e => {
+        e.preventDefault();
+        setErrors([]);
+
+        return dispatch(sessionActions.login({
+            "credential": "Demo-lition", "password": "password"
+        })).catch((res) => {
+            if (res.data && res.data.errors) {
+                const trigger = document.getElementById("popover-trigger-2")
+                trigger.click();
+                setErrors(res.data.errors);
+            }
+        })
+    }
     const registerUser = e => {
         e.preventDefault()
         setErrors([]);
@@ -89,7 +104,7 @@ const LoginFormPage = ({loginRevealed, setLoginRevealed, setSignupRevealed}) => 
                 <button onClick={handleLoginButton}id="loginButton" className="specialButton" type="submit">Log In</button>
             </form>
             <div>
-                <button onClick={handleLoginButton}id="loginButton" className="specialButton" type="submit">Demo User</button>
+                <button onClick={loginDemo}id="loginButton" className="specialButton" type="submit">Demo User</button>
             </div>
         </div>
     );

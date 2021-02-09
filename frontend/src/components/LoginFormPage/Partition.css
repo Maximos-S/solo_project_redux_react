@@ -52,16 +52,40 @@
     bottom: 0px;
     height:100px;
     width: 300px;
+    
 }
 .aboutLoginParagraph {
+    z-index: 2;
     padding: 20px;
     color: whitesmoke;
     position: absolute;
     top: 0px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutLoginParagraph a {
+    color: whitesmoke;
+    font-size: 25px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.aboutLoginParagraph p {
+    padding: 0px;
+    margin: 0;
+}
+
+.aboutLoginParagraph a:hover {
+    color: #00eaff;
 }
 
 .aboutLogo {
-    height: 70px;
+    width: 100%;
+    height: 90px;
     background-image: url('../../littlejonlogo.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -70,7 +94,7 @@
 
 .loginIllustration {
     position: absolute;
-    top:200px;
+    top:125px;
     left: -80px;
     height: 200%;
     width: 200%;

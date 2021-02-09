@@ -1,4 +1,6 @@
 import React from 'react';
+import {AiFillLinkedin, AiFillGithub} from 'react-icons/ai'
+
 import './Partition.css'
 
 const Partition = () => {
@@ -29,7 +31,11 @@ const Partition = () => {
             <div id="loginPartition">
                 <div  className="aboutLoginParagraph">
                     <div class="aboutLogo"></div>
-                    <p>was created by Maximos Salzman.</p>
+                    <p>was created by full-stack developer <a href="https://maximos-s.github.io" target="_blank" rel="noopener noreferrer">Maximos Salzman</a></p>
+                    <div>
+                        <a href="https://github.com/Maximos-S" target="_blank" rel="noopener noreferrer"><AiFillGithub /></a>
+                        <a href="https://www.linkedin.com/in/maximos-salzman-5a7050171/" target="_blank" rel="noopener noreferrer"><AiFillLinkedin /></a>
+                    </div>
                 </div>
                 <div className="loginIllustration"></div>
             </div>
