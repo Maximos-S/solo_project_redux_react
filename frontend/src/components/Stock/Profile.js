@@ -86,7 +86,7 @@ const Profile = () => {
             <div className="stockBox">
                 <div className="stockInfo">
                     <div className="stockText">
-                        <h2 className="stockName">Portfolio</h2>
+                        <h2 className="portfolioName">Portfolio</h2>
                         <h1 className="stockPrice">${value}</h1>
                         <div >
                             <h3 className="stockSymbol">cost: ${totalCost}</h3>

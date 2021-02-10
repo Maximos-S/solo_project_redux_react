@@ -63,9 +63,13 @@
 }
 
 #redGain {
-    color: rgb(255, 80, 0)
+    color: rgb(255, 80, 0);
+    text-shadow: 0 0 5px rgba(255, 80, 0, 0.5);
+
 }
 
 #greenGain {
-    color: rgb(0, 200, 5)
+    color: rgb(0, 200, 5);
+    text-shadow: 0 0 5px rgba(0, 200, 5, 0.5);
+
 }
