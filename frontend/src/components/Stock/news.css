@@ -198,6 +198,8 @@
 }
 
 .stockName {
+    height: 60px;
+    overflow: scroll;
     line-height: 30px;
     margin-top: 0px;
     margin-bottom: 0px;
