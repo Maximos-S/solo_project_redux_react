@@ -16,7 +16,7 @@
 }
 
 .stock:hover{
-    background-color: gray;
+    background-color: rgba(255,255,255, 0.1);
     cursor: pointer;
 
 }
@@ -98,7 +98,9 @@
     grid-area: shares;
     color: #00eaff;
 }
-
+.remove:hover {
+    text-shadow: 0 0 5px rgba(0, 234, 255, 1);
+}
 .symbol{
     grid-area: symbol;
 }
