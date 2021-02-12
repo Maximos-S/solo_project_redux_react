@@ -29,9 +29,10 @@ function Stock() {
     } 
     const addPortfolio = e => {
         if (shares === 0) return
-        return dispatch(portfolioActions.addToPortfolio(
+        dispatch(portfolioActions.addToPortfolio(
             stock, shares, sessionUser.id
-        ))
+            ))
+        setShares(0);
     }
     const addWatchlist = e => {
 
@@ -41,9 +42,10 @@ function Stock() {
     }
     const sellPortfolio = e => {
         if (sell === 0) return
-        return dispatch(portfolioActions.sellPortfolio(
+        dispatch(portfolioActions.sellPortfolio(
             stock, sell, sessionUser.id
         ))
+        setSellShares(0)
     }
 
 
