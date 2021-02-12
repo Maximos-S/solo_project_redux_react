@@ -74,7 +74,9 @@ router.delete('/', asyncHandler(async (req,res) => {
         }
         user.Portfolio.buyingPower = Number(user.Portfolio.buyingPower) + Number(cost)
         await user.Portfolio.save();
-        oldStock.cost = Number(cost) - Number(oldStock.cost)
+        console.log("cost", cost)
+        console.log("oldcost", oldStock.cost)
+        oldStock.cost = Number(oldStock.cost) - Number(cost)
         await oldStock.save();
         res.json({portfolio})
         return

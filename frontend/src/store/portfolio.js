@@ -24,7 +24,7 @@ export const addToPortfolio = (stock, shares, userId) => (async (dispatch) => {
         body: JSON.stringify({stock, shares, userId})
     })
     console.log("dispatch",response.data)
-    dispatch(showPortfolio(response.data.portfolio))
+    dispatch(getPortfolio(userId))
     return response
 })
 
@@ -34,7 +34,7 @@ export const getPortfolio = (userId) => (async (dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({userId})
     })
-
+    console.log("getPortfolio", response)
     dispatch(showPortfolio(response.data.portfolio))
     return
 })
@@ -44,7 +44,7 @@ export const sellPortfolio = (stock, shares, userId) => (async (dispatch) => {
         headers: {'Content': 'application/json'},
         body: JSON.stringify({stock, shares, userId})
     })
-    dispatch(showPortfolio(response.data.portfolio))
+    dispatch(getPortfolio(userId))
     return response
 })
 

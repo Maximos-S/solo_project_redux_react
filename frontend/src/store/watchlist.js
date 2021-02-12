@@ -15,7 +15,7 @@ export const addToWatchlist = (stock, userId) => (async (dispatch) => {
         headers: {'Content': 'application/json'},
         body: JSON.stringify({stock, userId})
     })
-    dispatch(showWatchlist(response.data.watchlist))
+    dispatch(getWatchlist(userId))
     return response
 })
 
@@ -36,7 +36,7 @@ export const remove = (stockId, userId) => (async (dispatch) => {
         headers: {'Content': 'application/json'},
         body: JSON.stringify({stockId, userId})
     })
-    dispatch(showWatchlist(response.data.watchlist))
+    dispatch(getWatchlist(userId))
     return response
 })
 

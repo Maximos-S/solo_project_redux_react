@@ -84,6 +84,10 @@ router.post('/', asyncHandler(async (req,res) => {
         lastUpdated
     })
     
+    if(!savedStock) {
+        stock.StocksInLists = [{"shares": 0}]
+    }
+    console.log("stockssas;dka;djf", stock)
     
     const stockData = {stock, chartData, news}
     res.json({stockData})

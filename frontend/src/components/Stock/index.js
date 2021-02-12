@@ -19,6 +19,7 @@ function Stock() {
 
     useEffect(() => {
         setStockDetail(stock, shares)
+        console.log("stocksszz", stockDetail)
     },[stock])
 
     const setShareNumber = (e) => {
@@ -33,6 +34,11 @@ function Stock() {
             stock, shares, sessionUser.id
             ))
         setShares(0);
+        if (stockDetail.StocksInLists) {
+            stockDetail.StocksInLists[0].shares += 1
+        } else {
+            stockDetail.StocksInLists = [{"shares": 1}]
+        }
     }
     const addWatchlist = e => {
 
@@ -41,11 +47,17 @@ function Stock() {
         ))
     }
     const sellPortfolio = e => {
+        if (stockDetail.StocksInLists[0].shares == 0) {
+            alert("You can't sell what you don't have")
+            setSellShares(0)
+            return
+        }
         if (sell === 0) return
         dispatch(portfolioActions.sellPortfolio(
             stock, sell, sessionUser.id
         ))
         setSellShares(0)
+        stockDetail.StocksInLists[0].shares -= 1
     }
 
 
