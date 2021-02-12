@@ -1,6 +1,9 @@
 # What is littleJon?
 Little Jon is an interface to virtually buy or sell stocks. Sign up or log in to start searching for stocks. Buy shares to add them to your portfolio. Get up to date charts and stats of stocks recent activity. Checkout how your portfolio is doing and sell off some shares. Not ready to buy a stock? Add it to your watchlist! Checkout the news feed to see relevant information about a company. LittleJon was inspired by Robinhood.
 
+![](littlejon.gif)
+
+
 ## Developing
 ### What Technologies Were Used?
 Javascript, Express, React, Redux, Vanilla CSS, Sequelize && Sequel
