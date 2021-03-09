@@ -26,7 +26,7 @@ export const getWatchlist = (userId) => (async (dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({userId})
     })
-
+    console.log("response",response.data.watchlist)
     dispatch(showWatchlist(response.data.watchlist))
     return
 })

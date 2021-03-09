@@ -58,7 +58,7 @@ router.post("/portfolio", asyncHandler(async (req, res) => {
 router.post("/watchlist", asyncHandler(async (req, res) => {
     const user = await User.findOne({where: {id: req.body.userId}, include:  [{model: Watchlist, include: [Stock,],}], })
     const watchlist = user.Watchlist
-
+    console.log("########",watchlist)
 
     res.json({watchlist})
 }))

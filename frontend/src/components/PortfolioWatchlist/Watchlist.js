@@ -12,7 +12,7 @@ const Watchlist = () => {
     const dispatch = useDispatch()
     
     useEffect(() => {
-        getWatchlist()
+        console.log("watchlist",watchlist)
     }, []);
 
 

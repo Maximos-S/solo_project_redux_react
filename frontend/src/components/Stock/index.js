@@ -8,6 +8,7 @@ import './news.css'
 function Stock() {
     const stock = useSelector(state => state.search.stock)
     const chart = useSelector(state => state.search.chart)
+    const watchlist = useSelector(state => state.watchlist)
 
     const sessionUser = useSelector(state => state.session.user)
 
